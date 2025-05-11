@@ -71,11 +71,11 @@ body {
 .result__ansewer {
   display: flex;
   margin: 0 auto;
-  max-width: 480px;
-  width: 100%;
+  max-width: 100%;
+  width: 480px;
   min-height: 560px;
   background-color:  #64AAD0;
-  border-radius: 12px;
+  border-radius: 12px; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,8 +87,8 @@ body {
 .result_button {
   margin: 24px auto 0 auto;
   background-color:  #64AAD0;
-  max-width: 480px;
-  width: 100%;
+  max-width: 100%;
+  width: 480px;
   height: 49px;
   display: flex;
   align-items: center;

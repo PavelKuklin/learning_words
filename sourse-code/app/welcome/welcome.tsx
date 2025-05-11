@@ -1,9 +1,32 @@
-import logoDark from "./logo-dark.svg";
-import logoLight from "./logo-light.svg";
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 
 export function Welcome() {
+
+  const [myNewValue, setmyNewValue] = useState('');
+  const [text, setText] = useState("Dignity");
+  
+  let currentItem = 0;
+
+  function nextWord() {
+    const separatedWords = [];
+
+    const newArray = myNewValue.split(',');
+
+    newArray.forEach( item => {
+      separatedWords.push(item)
+    })
+
+    if (currentItem < separatedWords.length) {
+      setText(separatedWords[currentItem ])
+      currentItem += 1;
+    } else {
+      setText(separatedWords[0])
+      currentItem = 0;
+    }
+
+  }
+
   return (
     <main className="main-container">
       <section className="top">
@@ -16,17 +39,17 @@ export function Welcome() {
           Enter your words, Separated by ","
         </div>
         <div className="enter-text__row">
-          <input type="text" className="enter-text__field" />
-          <button className="enter-text__btn">ok</button>
+          <input type="text" className="enter-text__field" value={myNewValue} onChange={(event) => setmyNewValue(event.target.value)} />
+          <button className="enter-text__btn" >ok</button>
         </div>
       </section>
       <section className="result__text">
         <div className="result__ansewer">
           <span className="result_value">
-            Dignity
+            {text}
           </span>
         </div>
-        <button className="result_button">
+        <button className="result_button" onClick={nextWord}>
           Next words
         </button>
       </section>
